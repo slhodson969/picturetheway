@@ -1,0 +1,27 @@
+diff -r 1f4c7de27033 js/my_hyperlapse.js
+--- a/js/my_hyperlapse.js	Tue May 21 20:16:13 2013 +0200
++++ b/js/my_hyperlapse.js	Wed May 29 20:21:37 2013 +0200
+@@ -47,14 +47,20 @@
+             var results = response.rows[0].elements;
+             var element = results[0];
+             var distance = element.distance.value;
+-            var km = 1000
++            var km = 1000            
++
++            var max_points, distance_between_points;
++
++
++			distance_between_points = 0.1 * (distance/1000)
++			max_points = distance_between_points
+ 
+             hyperlapse = new Hyperlapse(document.getElementById('pano'), {
+ 				zoom: 1,
+ 				use_lookat: false,
+ 				elevation: 50,
+-				max_points: 300,
+-				distance_between_points: 0.5,
++				max_points: 250,
++				distance_between_points: distance_between_points,
+ 				millis: 100
+ 			});
+ 

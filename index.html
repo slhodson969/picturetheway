@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Picture the way</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="style.css" rel="stylesheet" media="screen">
+        <link href='http://fonts.googleapis.com/css?family=Gentium+Book+Basic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:800' rel='stylesheet' type='text/css'> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        
+    </head>
+    <body>
+
+        <div class="background_holder cf">
+            <div class="alert alert-info visible-phone">
+                <p>This app will not allways play ball with your mobile. Try a machine with Chrome for the best results! And beleve us. The results are amazing!</p>
+            </div>
+            
+            <h1><span class="headtext">Picture</span><span class="the"> the </span><span class="headtext">way<span></h1>
+        </div>
+
+
+
+        <div class="carousel slide myCarousel">
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+                <div class="active item slide">
+                    <div class="container-fluid white_background">
+                        <div class="row-fluid page">
+                            <div class="input_holder cf">
+                                <h3> Fill in the address, place or postal code of your starting point and your destination and we will show you the road ahead of you!</h3>
+                                <div class="form_holder">
+                                    <a class="carousel-control right" href=".myCarousel" data-slide="next">&rsaquo;</a>
+                                    <img src="images/gun.png">
+                                    <h4>Starting point</h4>
+                                    <input type="text" placeholder="Starting adres or place" id="geocomplete_start">
+                                </div>
+                                <div class="form_holder cf">
+                                    <img src="images/finish.png">
+                                    <h4>Destination</h4>
+                                    <input type="text" placeholder="Destination adres or place" id="geocomplete_end">
+                                </div>
+                                <input id="find" type="submit" value="Picture The Way!" />
+                                <!-- <a href="#" id="find" class="submit1 cf">Picture my way!</a> -->
+                            </div> 
+                        </div><!-- row fluid -->
+                    </div><!-- container fluid -->
+                </div><!--  item -->
+                <div class="item slide"> 
+                    <div class="container-fluid white_background">
+                        <div class="row-fluid page">
+                            <div class="input_holder cf">
+                                <a class="carousel-control right" href=".myCarousel" data-slide="next">&rsaquo;</a>
+                                <h3>Your route is loading! This might take a few seconds. This is all the fault of Google Maps. They made it slow. Sorry for that!</h3>
+                                <img src="images/loader.gif" class="loading">
+                                <p>Little tip: Remember the car icon! It will make you laugh on the next page!</p>
+                            </div> 
+                        </div><!-- row fluid -->
+                    </div><!-- container fluid -->
+                    <div class="container-fluid maps">
+                        <div class="google_maps_holder">
+                            <div id="map-canvas" style="width: 800px; height: 480px;"></div>
+                        </div>
+                    </div>
+                </div><!-- item -->
+                <div class="item slide"> 
+                    <div class="container-fluid white_background">
+                        <div class="row-fluid page">
+                            <div class="input_holder cf">  
+                                <a class="carousel-control right" href=".myCarousel" data-slide="next">&rsaquo;</a>
+                                
+                                <div class="icon_holder">
+                                    <p>Chose your vehicle</p>
+                                    <div class="icon" id="car">&nbsp;</div>
+                                    <div class="icon" id="motor">&nbsp;</div>
+                                    <div class="icon" id="no_vehicle">&nbsp;</div>
+                                </div>
+                                <div class="share_holder">
+                                    <p>Share your trip here</p>
+                                    <input id="facebook_share" type="button" value="Share Your Way!" />
+                                </div><!-- share holder -->
+                            </div> 
+                        </div><!-- row fluid -->
+                    </div><!-- container fluid -->
+                    <div class="container-fluid maps">
+                        <div class="google_maps_holder">
+                            <div id="pano" class="cf">
+                                <div class="overlay">
+                                    <a class="overlay_button">
+                                        <img src="images/replay_icon.png">
+                                        Replay
+                                    </a>
+                                    <a class="overlay_button">
+                                        <img src="images/replay_icon.png">
+                                        New Route
+                                    </a>
+
+                                    Don't forget to share your route with your friends!
+                                </div>
+                                <img src="images/overlay/car.png" class="vehicle car_pic cf">
+                                <img src="images/overlay/motor.png" class="vehicle motor_pic cf">
+                            </div>
+
+                        </div>
+                    </div>
+                </div><!-- item -->
+            </div><!-- carousel inner -->
+        </div> <!-- carousel-->   
+
+        <footer class="yellow">
+            <div class="row-fluid">
+                <p>Made by Scott &amp; Peter. Copyright &copy; 2013, Picture the Way.</p>
+                <fb:like href="http://www.picturetheway.com" send="false" layout="box_count" width="450" show_faces="true" font="verdana"></fb:like>
+            </div>
+        </footer>
+
+
+    
+        <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script src="js/jquery.geocomplete.min.js"></script>
+        <script src="js/three.min.js"></script>
+        <script src="js/GSVPano.js"></script>
+        <script src="js/Hyperlapse.js"></script>
+        <script src="js/my_hyperlapse.js"></script>
+        
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+
+            $(function(){
+                $("#geocomplete_start").focus();
+            });
+            $('.myCarousel').carousel({
+                interval: false 
+            });
+            $('.carousel').carousel({
+                interval: false
+            });
+            
+            $('#car').click(function(){
+                $('.vehicle').fadeOut();
+                $('.icon').removeClass('blue_background');
+                $('.car_pic').fadeIn();
+                $(this).addClass('blue_background');
+            });
+            $('#motor').click(function(){
+                $('.vehicle').fadeOut();
+                $('.icon').removeClass('blue_background');
+                $('.motor_pic').fadeIn();
+                $(this).addClass('blue_background');
+            });
+            $('#no_vehicle').click(function(){
+                $('.vehicle').fadeOut();
+                $('.icon').removeClass('blue_background');
+            });
+
+            //$('#myModal').modal(options);
+        </script>
+
+        <script>
+            var start, end;
+
+            $("#geocomplete_start").geocomplete()
+                .bind("geocode:result", function(event, result){
+                    start = result;
+            })
+            // .bind("geocode:error", function(event, status){
+            //     $.log("ERROR: " + status);
+            // })
+            // .bind("geocode:multiple", function(event, results){
+            //     $.log("Multiple: " + results.length + " results found");
+            // });
+
+            $("#geocomplete_end").geocomplete()
+                .bind("geocode:result", function(event, result){
+                    end = result;
+            })
+            // .bind("geocode:error", function(event, status){
+            //     $.log("ERROR: " + status);
+            // })
+            // .bind("geocode:multiple", function(event, results){
+            //     $.log("Multiple: " + results.length + " results found");
+            // });
+        
+            $("#find").click(function(){
+                create_hyperlapse();
+                $('.carousel').carousel('next');
+                google.maps.event.trigger(map, 'resize');
+            });
+
+
+            $("#facebook_share").click(function(){
+
+                // TODO:
+                //      * Programmatically add locations to the url
+                //      * Add images, description, etc
+                //      * Center popup
+                //  
+                // Should this be changed to use the Facebook Feed Dialog API?
+                // https://developers.facebook.com/docs/reference/dialogs/feed/
+
+                var sharer = "https://www.facebook.com/sharer/sharer.php?u=";
+                var url = encodeURIComponent(location.href);
+                window.open(sharer + url, 'sharer', 'width=626,height=436');
+            });
+
+        </script>
+
+    </body>
+</html>
