@@ -384,3 +384,31 @@ canvas{
 
 	}
 }
+
+/* Progress Bar */
+
+.progress {
+	z-index: 210;
+	position: relative;
+	bottom: -50px;
+	margin: 0 auto;
+	height: 3px;
+	width: 94%;
+}
+.progress .bar {
+	height: 100%;
+	width: 0%;
+	background-color: #3d7e65;
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(45deg, #5cc09a, #3d7e65);
+	background-image: -webkit-linear-gradient(45deg, #5cc09a, #3d7e65);
+	background-image: -o-linear-gradient(45deg, #5cc09a, #3d7e65);
+	background-image: linear-gradient(45deg, #5cc09a, #3d7e65);
+}
+
+.bar {
+  -webkit-transition: width 0.3s ease;
+  -moz-transition: width 0.3s ease;
+  -o-transition: width 0.3s ease;
+  transition: width 0.3s ease;
+}

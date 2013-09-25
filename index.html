@@ -53,7 +53,9 @@
                             <div class="input_holder cf">
                                 <a class="carousel-control right" href=".myCarousel" data-slide="next">&rsaquo;</a>
                                 <h3>Your route is loading! This might take a few seconds. This is all the fault of Google Maps. They made it slow. Sorry for that!</h3>
-                                <img src="images/loader.gif" class="loading">
+
+                                <div class="progress"><div class="bar"></div></div>
+
                                 <p>Little tip: Remember the car icon! It will make you laugh on the next page!</p>
                             </div> 
                         </div><!-- row fluid -->
@@ -85,6 +87,7 @@
                     </div><!-- container fluid -->
                     <div class="container-fluid maps">
                         <div class="google_maps_holder">
+                            
                             <div id="pano" class="cf">
                                 <div class="overlay">
                                     <a class="overlay_button">
@@ -110,6 +113,7 @@
 
         <footer class="yellow">
             <div class="row-fluid">
+                <button id="replay" type="submit">Replay</button>
                 <p>Made by Scott &amp; Peter. Copyright &copy; 2013, Picture the Way.</p>
                 <fb:like href="http://www.picturetheway.com" send="false" layout="box_count" width="450" show_faces="true" font="verdana"></fb:like>
             </div>
@@ -188,7 +192,6 @@
                 $('.carousel').carousel('next');
                 google.maps.event.trigger(map, 'resize');
             });
-
 
             $("#facebook_share").click(function(){
 

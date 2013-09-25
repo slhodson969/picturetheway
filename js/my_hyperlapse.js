@@ -59,16 +59,23 @@ function create_hyperlapse() {
 				millis: 100
 			});
 
-            hyperlapse.onError = function(e) {
-				console.log(e);
+			hyperlapse.onRouteProgress = function(e) {
+				var p = Math.floor((hyperlapse.length()/160)*100);
+				$('.progress .bar').width(p+'%');
 			};
 
 			hyperlapse.onRouteComplete = function(e) {
 				hyperlapse.load();
 			};
 
+			hyperlapse.onLoadProgress = function(e) {
+				var p = (Math.floor( ((e.position+1) / hyperlapse.length() )*100) / 2) + 50;
+				$('.progress .bar').width(p+'%');
+			};
+
 			hyperlapse.onLoadComplete = function(e) {
 				$('.carousel').carousel('next');
+				$('.progress .bar').width('0%');
 				hyperlapse.play();
 			};
 
@@ -77,6 +84,11 @@ function create_hyperlapse() {
 					hyperlapse.pause();
 				}
 			}
+
+			hyperlapse.onError = function(e) {
+				console.log(e);
+			};
+			
         }
     }
 
