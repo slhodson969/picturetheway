@@ -25,7 +25,13 @@
     </script>
 
     <script>
+
+    	var start_coordinates, end_coordinates;
+
 		$(function(){
+			
+			enableOrDisableFindButton();
+
 			$(".geocomplete").geocomplete({
 				map: ".map_canvas",
 				//details: "form",
@@ -33,6 +39,7 @@
 			});
 
 			$("#geocomplete_start").bind("geocode:result", function(event, result){
+				start_coordinates = result.geometry;
 				console.log("START");
 				console.log(result);
 				console.log(result.geometry.location.lat());
@@ -44,9 +51,12 @@
   					$("#geocomplete_start").val(result.formatted_address);
 				});
 
+				enableOrDisableFindButton();
+
 			});
 
 			$("#geocomplete_end").bind("geocode:result", function(event, result){
+				end_coordinates = result.geometry;
 				console.log("END")
 				console.log(result);
 				console.log(result.geometry.location.lat());
@@ -55,8 +65,10 @@
 				console.log("-----------------------------");
 
 				$(this).blur(function() {
-  					$("#geocomplete_start").val(result.formatted_address);
+  					$("#geocomplete_end").val(result.formatted_address);
 				});
+
+				enableOrDisableFindButton();
 				
 			});
 
@@ -67,6 +79,15 @@
     // 			});
 			});
 		});
+
+		function enableOrDisableFindButton() {
+			if (start_coordinates && end_coordinates) {
+				$("#find").removeAttr("disabled");
+			} else if (!$("#deliveryNext").is(":disabled")) {
+				$("#find").attr("disabled", "disabled");
+			}
+		}
+		
     </script>
 
 </head>
