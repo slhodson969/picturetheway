@@ -103,7 +103,7 @@ footer{
 }
 .small_wrapper{
 	width:100%;
-	max-width: 400px;
+	max-width: 360px;
 	margin: 0 auto;
 	display: block;
 }
@@ -281,20 +281,19 @@ footer a{
 
 /***********    Page 2     *************/
 
-.bigger_wrapper{
-	width:100%;
+
+.big_wrapper{
+	display:block;
+	margin: 0 auto;
 	max-width: 700px;
-	margin: 0 auto;
-	display: block;
-	width: 100%;
 }
-.progress, .maps_holder{
-	width: 100%;
-}
-.progress_holder{
+.progress{
 	position: relative;
-	width: 800px;
-	margin: 0 auto;
+	height: 300px;
+	width: 100%;
+	border: thin solid #fff;
+	background: rgb(255, 255, 255); /* The Fallback */
+  background: rgba(255, 255, 255, 0.2);
 }
 .bar{
 	z-index: 10;
@@ -302,17 +301,14 @@ footer a{
 .map_canvas{
 	position: absolute;
 	width: 100%;
+	height: 100%;
 }
-.background_color{
-	background: tomato;
-	width: 800px;
-	height: 400px;
-	z-index: 1
-}
-.opacity{
-	 border: thin solid #fff;
-	 background: rgb(255, 255, 255); /* The Fallback */
-   background: rgba(255, 255, 255, 0.2);
+
+/***********    Page 3     *************/
+.pano{
+	position: relative;
+	width: 100%;
+	height: 100%;
 }
 
 /* Landscape phones and down */
@@ -337,5 +333,8 @@ footer a{
 	}
 	.small_wrapper{
 	width:100%;
-	max-width: 380px;
+	}
+	.big_wrapper{
+	margin: 0 20px;
+	}
 }
