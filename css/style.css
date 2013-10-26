@@ -10,7 +10,6 @@ html{
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
-	color: #fff;
 }
 /*Fade in stuff*/
 @keyframes move_from_top{
@@ -94,12 +93,13 @@ footer{
 		display:block;
 		text-align: center;
 		margin: 0 0 60px;
-		font-family: HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+		font-family: HelveticaNeue-UltraLight, 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 		font-weight: 100;
-		font-size: 26px;
+		font-size: 28px;
 }
 .subtitle span{
 	font-size: 16px;
+	font-weight: 600;
 }
 .small_wrapper{
 	width:100%;
@@ -153,6 +153,7 @@ outline: none;
 	text-align: center;
 	position: relative;
 	font-size: 28px;
+	color: #fff;
 }
 .lining{
 	display: inline-block;
@@ -270,7 +271,13 @@ footer a{
 	float: left;
 	display: block;
 	text-decoration: none;
+	color: #fff;
 }
+.twitter_holder{
+	left: 50%; margin-left: -84px; margin-top: 30px; display: block;
+	position: relative;
+	width: 168px;
+	}
 
 /***********    Page 2     *************/
 
@@ -281,14 +288,31 @@ footer a{
 	display: block;
 	width: 100%;
 }
-/*
-	-webkit-filter: grayscale(100%);
-	-moz-filter: grayscale(100%);
-	filter: grayscale(100%);*/
-.progress, .bar, .behind_progress_bar{
-	height: 20px;
-	background: tomato;
+.progress, .maps_holder{
+	width: 100%;
+}
+.progress_holder{
 	position: relative;
+	width: 800px;
+	margin: 0 auto;
+}
+.bar{
+	z-index: 10;
+}
+.map_canvas{
+	position: absolute;
+	width: 100%;
+}
+.background_color{
+	background: tomato;
+	width: 800px;
+	height: 400px;
+	z-index: 1
+}
+.opacity{
+	 border: thin solid #fff;
+	 background: rgb(255, 255, 255); /* The Fallback */
+   background: rgba(255, 255, 255, 0.2);
 }
 
 /* Landscape phones and down */
@@ -314,46 +338,4 @@ footer a{
 	.small_wrapper{
 	width:100%;
 	max-width: 380px;
-}
-
-/*Animation magic*/
-.animated {
-	-webkit-animation-duration: 1s;
-	   -moz-animation-duration: 1s;
-	     -o-animation-duration: 1s;
-	        animation-duration: 1s;
-	-webkit-animation-fill-mode: both;
-	   -moz-animation-fill-mode: both;
-	     -o-animation-fill-mode: both;
-	        animation-fill-mode: both;
-}
-@-webkit-keyframes shake {
-	0%, 100% {-webkit-transform: translateX(0);}
-	10%, 30%, 50%, 70%, 90% {-webkit-transform: translateX(-10px);}
-	20%, 40%, 60%, 80% {-webkit-transform: translateX(10px);}
-}
-
-@-moz-keyframes shake {
-	0%, 100% {-moz-transform: translateX(0);}
-	10%, 30%, 50%, 70%, 90% {-moz-transform: translateX(-10px);}
-	20%, 40%, 60%, 80% {-moz-transform: translateX(10px);}
-}
-
-@-o-keyframes shake {
-	0%, 100% {-o-transform: translateX(0);}
-	10%, 30%, 50%, 70%, 90% {-o-transform: translateX(-10px);}
-	20%, 40%, 60%, 80% {-o-transform: translateX(10px);}
-}
-
-@keyframes shake {
-	0%, 100% {transform: translateX(0);}
-	10%, 30%, 50%, 70%, 90% {transform: translateX(-10px);}
-	20%, 40%, 60%, 80% {transform: translateX(10px);}
-}
-
-.animated.shake {
-	-webkit-animation-name: shake;
-	-moz-animation-name: shake;
-	-o-animation-name: shake;
-	animation-name: shake;
 }

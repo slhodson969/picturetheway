@@ -23,18 +23,18 @@
 </head>
 
 <body>
+
     <div id="fb-root"></div>
 
     <div id="backgroundimage_holder">
         <div class="content_holder cf">
             <div id="page1">
                 <h1><span class="headtext">Picture</span> <span class=
-                "the">the</span> <span class=
-                "headtext">way<span></span></span></h1>
+                "the">the</span> <span class="headtext">way</span></h1>
 
-                <h5 class="subtitle"><span class="headtext">From A to B in one
-                motion. Easy. <span><br>
-                (Try to keep it shorter than 30km though)</span></span></h5>
+                <h5 class="subtitle">From A to B in one
+                motion. Easy.<br>
+                <span>(Try to keep it shorter than 30km though)</span></h5>
 
                 <div class="small_wrapper">
                     <form>
@@ -47,14 +47,21 @@
                             <div class="lining finish_title">finish</div>
                         </div>
                         <input id="geocomplete_end" placeholder="Street, city or address..." type="text" class="geocomplete">
-                        <button class="button_submit" id="submit" type=
-                        "button">Picture the way</button>
+                        <button class="button_submit" id="submit" type="button">Picture the way</button>
+                        <!-- <input class="button_submit" id="submit" type="submit" value="Picture the way"> -->
                     </form>
-
-                    <div id="map-canvas" class="map_canvas" style="width: 800px; height: 480px;"></div>
+                </div>
+                   
+                        <!-- <div id="map-canvas" class="map_canvas" style="width: 800px; height: 480px;"></div> -->
+                        <div class="progress_holder">
+                            <div class="progress">
+                                <div id="map-canvas" class="map_canvas bar" style="width: 800px; height: 300px;"></div>
+                            </div> <!-- progress -->
+                                <div id="map-canvas" class="map_canvas opacity" style="width: 800px; height: 300px;"></div>
+                        </div>
                     <div id="pano"></div>
 
-                </div>
+                
             </div><!-- page 1-->
 
             <div id="page2">
@@ -94,7 +101,9 @@
         if (document.documentElement.scrollHeight = document.documentElement.clientHeight) {
             $("body").height($(window).height());
         }
+
     });
+
     </script>
 </body>
 </html>
