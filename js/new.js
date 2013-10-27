@@ -19,40 +19,21 @@ $(function(){
 
 	$(".geocomplete").geocomplete({
 		map: ".map_canvas",
-		//details: "form",
-		//types: ["geocode", "establishment"]
 	});
 
 	$("#geocomplete_start").bind("geocode:result", function(event, result){
 		start_coordinates = result.geometry;
-		console.log("START");
-		console.log(result);
-		console.log(result.geometry.location.lat());
-		console.log(result.geometry.location.lng());
-		console.log(result.formatted_address);
-		console.log("-----------------------------");
-
 		$(this).blur(function() {
 			$("#geocomplete_start").val(result.formatted_address);
 		});
-
 		enableOrDisableFindButton();
-
 	});
 
 	$("#geocomplete_end").bind("geocode:result", function(event, result){
 		end_coordinates = result.geometry;
-		console.log("END")
-		console.log(result);
-		console.log(result.geometry.location.lat());
-		console.log(result.geometry.location.lng());
-		console.log(result.formatted_address);
-		console.log("-----------------------------");
-
 		$(this).blur(function() {
 			$("#geocomplete_end").val(result.formatted_address);
 		});
-
 		enableOrDisableFindButton();
 		
 	});
@@ -94,16 +75,13 @@ function createHyperlapse() {
         if (status == google.maps.DistanceMatrixStatus.OK) {
             var results = response.rows[0].elements;
             var element = results[0];
-            var distance = element.distance.value;
-            var max_points = distance/100;
-        	var distance_between_points = distance/100000;
 
             hyperlapse = new Hyperlapse(document.getElementById('pano'), {
 				zoom: 1,
 				use_lookat: false,
 				elevation: 50,
-				max_points: max_points,
-				distance_between_points: distance_between_points,
+				max_points: 75,
+				distance_between_points: 5,
 				millis: 100
 			});
 
