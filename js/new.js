@@ -14,34 +14,48 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 
 $(function(){
-	
-	enableOrDisableFindButton();
 
-	$(".geocomplete").geocomplete({
-		map: ".map_canvas",
-	});
+	var start_lat = GetURLParameter('start_lat');
+	var start_lng = GetURLParameter('start_lng');
+	var end_lat = GetURLParameter('end_lat');
+	var end_lng = GetURLParameter('end_lng');
 
-	$("#geocomplete_start").bind("geocode:result", function(event, result){
-		start_coordinates = result.geometry;
-		$(this).blur(function() {
-			$("#geocomplete_start").val(result.formatted_address);
-		});
+	if (start_lat && start_lng && end_lat && end_lng) {
+		createHyperlapse(start_lat, start_lng, end_lat, end_lng);
+	} else {
 		enableOrDisableFindButton();
-	});
 
-	$("#geocomplete_end").bind("geocode:result", function(event, result){
-		end_coordinates = result.geometry;
-		$(this).blur(function() {
-			$("#geocomplete_end").val(result.formatted_address);
+		$(".geocomplete").geocomplete({
+			map: ".map_canvas",
 		});
-		enableOrDisableFindButton();
-		
-	});
 
-	$("#submit").click(function(){
-		createHyperlapse();
-		google.maps.event.trigger(map, 'resize');
-	});
+		$("#geocomplete_start").bind("geocode:result", function(event, result){
+			start_coordinates = result.geometry;
+			$(this).blur(function() {
+				$("#geocomplete_start").val(result.formatted_address);
+			});
+			enableOrDisableFindButton();
+		});
+
+		$("#geocomplete_end").bind("geocode:result", function(event, result){
+			end_coordinates = result.geometry;
+			$(this).blur(function() {
+				$("#geocomplete_end").val(result.formatted_address);
+			});
+			enableOrDisableFindButton();
+		});
+
+		$("#submit").click(function(){
+			createHyperlapse(
+				start_coordinates.location.lat(),
+				start_coordinates.location.lng(),
+				end_coordinates.location.lat(),
+				end_coordinates.location.lng()
+			);
+
+			google.maps.event.trigger(map, 'resize');
+		});
+	}
 });
 
 function enableOrDisableFindButton() {
@@ -52,13 +66,13 @@ function enableOrDisableFindButton() {
 	}
 }
 
-function createHyperlapse() {
+function createHyperlapse(start_lat, start_lng, end_lat, end_lng) {
 
 	var elevation, distance_between_points, millis;
 
 	// Distance Matrix
-	var origin = new google.maps.LatLng(start_coordinates.location.lat(), start_coordinates.location.lng());
-	var destination = new google.maps.LatLng(end_coordinates.location.lat(), end_coordinates.location.lng());
+	var origin = new google.maps.LatLng(start_lat, start_lng);
+	var destination = new google.maps.LatLng(end_lat, end_lng);
 
     var service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix(
@@ -113,7 +127,7 @@ function createHyperlapse() {
 			hyperlapse.onError = function(e) {
 				console.log(e);
 			};
-			
+
         }
     }
 
@@ -138,5 +152,18 @@ function createHyperlapse() {
 			console.log(status);
 		}
 	});
+}
 
+function GetURLParameter(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {
+            return sParameterName[1];
+        }
+    }
 }
