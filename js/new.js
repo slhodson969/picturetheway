@@ -102,6 +102,7 @@ function createHyperlapse(start_lat, start_lng, end_lat, end_lng) {
 			hyperlapse.onRouteProgress = function(e) {
 				var p = Math.floor((hyperlapse.length()/160)*100);
 				$('.progress .bar').width(p+'%');
+				$('#bar_percent').html(p+'%');
 			};
 
 			hyperlapse.onRouteComplete = function(e) {
@@ -111,10 +112,13 @@ function createHyperlapse(start_lat, start_lng, end_lat, end_lng) {
 			hyperlapse.onLoadProgress = function(e) {
 				var p = (Math.floor( ((e.position+1) / hyperlapse.length() )*100) / 2) + 50;
 				$('.progress .bar').width(p+'%');
+				$('#bar_percent').html(p+'%');
+				
 			};
 
 			hyperlapse.onLoadComplete = function(e) {
 				$('.progress .bar').width('0%');
+				$('#bar_percent').html('');
 				hyperlapse.play();
 			};
 
