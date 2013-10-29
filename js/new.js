@@ -20,6 +20,10 @@ $(function(){
 	var end_lat = GetURLParameter('end_lat');
 	var end_lng = GetURLParameter('end_lng');
 
+	$("#page2").hide();
+	$("#page3").hide();
+
+
 	if (start_lat && start_lng && end_lat && end_lng) {
 		createHyperlapse(start_lat, start_lng, end_lat, end_lng);
 	} else {
@@ -46,14 +50,18 @@ $(function(){
 		});
 
 		$("#submit").click(function(){
+
+			$("#page1").hide();
+			$("#page2").fadeIn();
+
 			createHyperlapse(
 				start_coordinates.location.lat(),
 				start_coordinates.location.lng(),
 				end_coordinates.location.lat(),
 				end_coordinates.location.lng()
 			);
-
 			google.maps.event.trigger(map, 'resize');
+			
 		});
 	}
 });
@@ -121,6 +129,8 @@ function createHyperlapse(start_lat, start_lng, end_lat, end_lng) {
 			hyperlapse.onLoadComplete = function(e) {
 				$('.progress .bar').width('0%');
 				$('#bar_percent').html('');
+				$("#page2").hide();
+				$("#page3").fadeIn();
 				hyperlapse.play();
 			};
 
