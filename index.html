@@ -23,8 +23,15 @@
 </head>
 
 <body>
-
-    <div id="fb-root"></div>
+<div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=422164087856663";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
 
     <div id="backgroundimage_holder">
         <div class="content_holder cf">
@@ -32,8 +39,7 @@
                 <h1><span class="headtext">Picture</span> <span class=
                 "the">the</span> <span class="headtext">way</span></h1>
 
-                <h5 class="subtitle">From A to B in one
-                motion. Easy.<br>
+                <h5 class="subtitle">From A to B in one motion. Easy.<br>
                 <span>(Try to keep it shorter than 20km though)</span></h5>
 
                 <div class="small_wrapper">
@@ -51,9 +57,6 @@
                         <!-- <input class="button_submit" id="submit" type="submit" value="Picture the way"> -->
                     </form>
                 </div>
-                   
-                        
-
                 
             </div><!-- page 1-->
 
@@ -87,6 +90,12 @@
                 "images/logo.png">
 
                 <h4>Fork the shit out of it</h4></a>
+
+                <div class="fb-like" data-href="https://www.facebook.com/picturetheway" style="left: 50%; margin-left: -36px; margin-top: 30px; display: block; width:100px;" data-width="The pixel width of the plugin" data-height="The pixel height of the plugin" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false">
+                </div>
+                <div class="twitter_holder">
+                  <a href="https://twitter.com/picturetheway" style="left: 48%; margin-top: 30px; display: block;" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @picturetheway</a>
+                </div><!-- tiwtter holder -->
             </footer>
         </div><!-- content holder -->
     </div><!-- backgroundimage_holder -->
@@ -98,6 +107,10 @@
         if (document.documentElement.scrollHeight = document.documentElement.clientHeight) {
             $("body").height($(window).height());
         }
+
+
+
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 
     });
 
