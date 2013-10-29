@@ -111,7 +111,7 @@ function createHyperlapse(start_lat, start_lng, end_lat, end_lng) {
 			};
 
 			hyperlapse.onLoadProgress = function(e) {
-				var p = (Math.floor( ((e.position+1) / hyperlapse.length() )*100) / 2) + 50;
+				var p = Math.floor((((e.position+1)/hyperlapse.length()) *100 ) / 2) + 50;
 				$('.progress .bar').width(p+'%');
 				$('#bar_percent').html(p+'%');
 				$("#bar_percent").css("margin-left", p+ 5 +"%");
