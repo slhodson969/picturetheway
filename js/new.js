@@ -174,3 +174,8 @@ function GetURLParameter(sParam)
         }
     }
 }
+
+function createShareUrl()
+{
+	return encodeURIComponent(location.href + '?start_lat=' + start_coordinates.location.lat() + '&start_lng=' + start_coordinates.location.lng() + '&end_lat=' + end_coordinates.location.lat() + '&end_lng=' + end_coordinates.location.lng());
+}
