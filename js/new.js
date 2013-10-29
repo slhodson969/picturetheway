@@ -96,7 +96,7 @@ function createHyperlapse(start_lat, start_lng, end_lat, end_lng) {
 				elevation: 50,
 				max_points: 75,
 				distance_between_points: 5,
-				millis: 100
+				millis: 125
 			});
 
 			hyperlapse.onRouteProgress = function(e) {
