@@ -37,6 +37,10 @@ $(function(){
 			map: ".map_canvas",
 		});
 
+		$(".geocomplete").blur(function() {
+			$(this).trigger("geocode");
+		})
+
 		$("#geocomplete_start").bind("geocode:result", function(event, result){
 			start_coordinates = result.geometry;
 			$(this).blur(function() {
@@ -47,6 +51,18 @@ $(function(){
 
 		$("#geocomplete_end").bind("geocode:result", function(event, result){
 			end_coordinates = result.geometry;
+			
+			var postal_town, country;
+			for (var i = 0; i < result.address_components.length; i++) {
+				if (result.address_components[i].types["0"] == "postal_town") {
+					postal_town = result.address_components[i].long_name
+				} else if (result.address_components[i].types["0"] == "country") {
+					country = result.address_components[i].long_name
+				}
+			}
+			var title = "Picture the way to: " + postal_town + ", " + country;
+			$("meta[property='og\\:title']").attr("content", title);
+
 			$(this).blur(function() {
 				$("#geocomplete_end").val(result.formatted_address);
 			});
