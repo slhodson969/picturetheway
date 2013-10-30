@@ -19,6 +19,7 @@ $(function(){
 	var start_lng = GetURLParameter('start_lng');
 	var end_lat = GetURLParameter('end_lat');
 	var end_lng = GetURLParameter('end_lng');
+	$(".mobile-message").css('display', 'none');
 
 	if (start_lat && start_lng && end_lat && end_lng) {
 		$("#page1").css('display', 'none');
