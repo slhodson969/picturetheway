@@ -20,13 +20,16 @@ $(function(){
 	var end_lat = GetURLParameter('end_lat');
 	var end_lng = GetURLParameter('end_lng');
 
-	$("#page2").css('display', 'none');
-	$("#page3").css('display', 'none');
-
-
 	if (start_lat && start_lng && end_lat && end_lng) {
+		$("#page1").css('display', 'none');
+		$("#page2").fadeIn();
+		$("#page3").css('display', 'none');
 		createHyperlapse(start_lat, start_lng, end_lat, end_lng);
 	} else {
+		$("#page1").fadeIn("slow");
+		$("#page2").css('display', 'none');
+		$("#page3").css('display', 'none');
+
 		enableOrDisableFindButton();
 
 		$(".geocomplete").geocomplete({
@@ -129,7 +132,7 @@ function createHyperlapse(start_lat, start_lng, end_lat, end_lng) {
 			hyperlapse.onLoadComplete = function(e) {
 				$('.progress .bar').width('0%');
 				$('#bar_percent').html('');
-				$("#page2").hide();
+				$("#page2").css('display', 'none');
 				$("#page3").fadeIn();
 				hyperlapse.play();
 			};
