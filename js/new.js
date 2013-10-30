@@ -36,6 +36,10 @@ $(function(){
 			map: ".map_canvas",
 		});
 
+		$(".geocomplete").blur(function() {
+			$(this).trigger("geocode");
+		})
+
 		$("#geocomplete_start").bind("geocode:result", function(event, result){
 			start_coordinates = result.geometry;
 			$(this).blur(function() {
