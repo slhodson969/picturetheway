@@ -67,6 +67,14 @@ $(function(){
 			
 		});
 	}
+
+	$('#replay').click(function() {
+        for (i=0; i < hyperlapse.length(); i++) {
+                hyperlapse.prev();
+        }
+        hyperlapse.play();
+	});
+
 });
 
 function enableOrDisableFindButton() {
