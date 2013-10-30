@@ -11,6 +11,15 @@ html{
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
 }
+.mobile-message{
+	display: none;
+	background: rgba(225, 225, 225, 0.2);
+	padding: 5px 20px;
+	color: #fff;
+	position: relative;
+	font-size: 16px;
+	line-height: 22px;
+}
 /*Fade in stuff*/
 @keyframes move_from_top{
 	from {top:-100px;}
@@ -48,6 +57,22 @@ html{
 	to {top:0px;}
 }
  #page1{
+	display: none;
+	position: relative;
+	animation:move_from_top 0.9s;
+	-moz-animation: move_from_top 0.9s; /*Firefox */
+	-webkit-animation:move_from_top 0.9s; /*Safari and Chrome*/
+	-o-animation:move_from_top 0.9s; /*Opera */
+}
+ #page2{
+	display: none;
+	position: relative;
+	animation:move_from_top 0.9s;
+	-moz-animation: move_from_top 0.9s; /*Firefox */
+	-webkit-animation:move_from_top 0.9s; /*Safari and Chrome*/
+	-o-animation:move_from_top 0.9s; /*Opera */
+}
+ #page3{
 	display: none;
 	position: relative;
 	animation:move_from_top 0.9s;
@@ -320,6 +345,9 @@ footer a{
 
 /* Landscape phones and down */
 @media (max-width: 480px) { 
+	body .mobile-message{
+		display: block;
+	}
 	.background_holder h1{
 		margin:40px 0;
 		font-size: 18px;

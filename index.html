@@ -2,10 +2,14 @@
 
 <html xmlns:fb="http://ogp.me/ns/fb#">
 <head>
-    <title>Picture the way</title>
+    <title>Picture the way. From A to B in one motion. Easy.</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- CSS -->
     <link href="css/style.css" media="screen" rel="stylesheet">
     <link href="css/normalize.css" rel="stylesheet">
+
+    <!-- Javascript -->
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <script src=
     "http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
@@ -16,10 +20,26 @@
     <script src="js/GSVPano.js"></script>
     <script src="js/Hyperlapse.js"></script>
     <script src="js/new.js"></script>
+
+    <!-- Fonts  -->
     <link href='http://fonts.googleapis.com/css?family=Gentium+Book+Basic' rel=
     'stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:800' rel=
     'stylesheet' type='text/css'>
+
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+    <meta name="description" content="Picture the way. Form A to B in one motion. Easy" />
+
+    <!-- Facebook -->
+    <meta property="og:title" content="Picture the way in: <city>, <country>" /> 
+    <meta property="og:image" content="Beatiful image" /> 
+    <meta property="og:description" content="From A to B in one motion. Easy." />
+    <!-- Twitter  -->
+    <meta name="twitter:card" content="Different product, everyday.>">
+    <meta name="twitter:url" content="<URL>"> 
+    <meta name="twitter:title" content="Picture the way in: <city>, <country>">
+    <meta name="twitter:description" content="From A to B in one motion. Easy.">
+    <meta name="twitter:image" content="<beatiful image>"> 
 </head>
 
 <body>
@@ -34,7 +54,11 @@
     </script>
 
     <div id="backgroundimage_holder">
+        <div class="mobile-message">
+                <p>It does not always play ball with old Android phoes and please use Chrome for the best results</p>
+            </div><!-- mobile message -->
         <div class="content_holder cf">
+
             <h1><span class="headtext">Picture</span> <span class=
                 "the">the</span> <span class="headtext">way</span></h1>
             <div id="page1">
@@ -73,7 +97,7 @@
             <div id="page3">
                 <div class="big_wrapper">
                     <div id="pano"></div>
-
+                    
                     <a href="#" 
                       onclick="
                         window.open(
@@ -142,6 +166,14 @@
 
       ga('create', 'UA-29073908-7', 'picturetheway.com');
       ga('send', 'pageview');
+    
+    // iPhoen check
+    var iOS = false,
+    device = navigator.platform;
+
+    if( device === 'iPhone' || device === 'iPod' ){    
+    window.location = 'http://picturetheway.com/iphone';
+    }
 
     </script>
 </body>

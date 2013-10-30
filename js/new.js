@@ -20,8 +20,8 @@ $(function(){
 	var end_lat = GetURLParameter('end_lat');
 	var end_lng = GetURLParameter('end_lng');
 
-	$("#page2").hide();
-	$("#page3").hide();
+	$("#page2").css('display', 'none');
+	$("#page3").css('display', 'none');
 
 
 	if (start_lat && start_lng && end_lat && end_lng) {
@@ -51,7 +51,7 @@ $(function(){
 
 		$("#submit").click(function(){
 
-			$("#page1").hide();
+			$("#page1").css('display', 'none');
 			$("#page2").fadeIn();
 
 			createHyperlapse(
