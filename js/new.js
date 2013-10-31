@@ -94,7 +94,7 @@ $(function(){
 		});
 	}
 
-	$('#replay').click(function() {
+	$('.dark').click(function() {
         for (i=0; i < hyperlapse.length(); i++) {
             hyperlapse.prev();
         }
