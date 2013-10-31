@@ -48,9 +48,6 @@ $(function(){
 			$(this).blur(function() {
 				$("#geocomplete_start").val(result.formatted_address);
 			});
-			if (start_coordinates && end_coordinates) {
-				$("#submit").trigger("click");
-			}
 			enableOrDisableFindButton();
 		});
 
@@ -71,9 +68,6 @@ $(function(){
 			$(this).blur(function() {
 				$("#geocomplete_end").val(result.formatted_address);
 			});
-			if (start_coordinates && end_coordinates) {
-				$("#submit").trigger("click");
-			}
 			enableOrDisableFindButton();
 		});
 
