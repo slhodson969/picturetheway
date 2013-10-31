@@ -21,6 +21,7 @@ $(function(){
 	var end_lng = GetURLParameter('end_lng');
 
 	$("#replay").hide();
+	$(".dark").hide();
 	$(".mobile-message").css('display', 'none');
 
 	if (start_lat && start_lng && end_lat && end_lng) {
@@ -92,6 +93,7 @@ $(function(){
             hyperlapse.prev();
         }
         $("#replay").hide();
+        $(".dark").hide();
         hyperlapse.play();
 	});
 
@@ -169,6 +171,7 @@ function createHyperlapse(start_lat, start_lng, end_lat, end_lng) {
 				if (e.position == hyperlapse.length() - 1) {
 					hyperlapse.pause();
 					$("#replay").show();
+					$(".dark").show();
 				}
 			}
 
