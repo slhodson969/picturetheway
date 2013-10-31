@@ -362,12 +362,6 @@ footer a{
 	position: absolute;
 	left: 278px;
 	top: 121px;
-}
-.dark{
-	width:700px;
-	height:400px;
-	background: rgba(0, 0, 0, 0.7);
-	position: absolute;
 	cursor: pointer;
 }
 .road_share{
