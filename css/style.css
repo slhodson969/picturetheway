@@ -359,10 +359,16 @@ footer a{
 }
 
 #replay{
-	display: block;
-	margin: 0 auto;
+	position: absolute;
+	left: 278px;
+	top: 121px;
 }
-
+.dark{
+	width:700px;
+	height:400px;
+	background: rgba(0, 0, 0, 0.7);
+	position: absolute;
+}
 .road_share{
 width: 100%;
 color: #fff;
