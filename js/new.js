@@ -100,8 +100,10 @@ $(function(){
 function enableOrDisableFindButton() {
 	if (start_coordinates && end_coordinates) {
 		$("#submit").removeAttr("disabled");
+		$("#submit").addClass("active");
 	} else if (!$("#submit").is(":disabled")) {
 		$("#submit").attr("disabled", "disabled");
+		$("#submit").removeClass("active");
 	}
 }
 
