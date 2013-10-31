@@ -19,6 +19,8 @@ $(function(){
 	var start_lng = GetURLParameter('start_lng');
 	var end_lat = GetURLParameter('end_lat');
 	var end_lng = GetURLParameter('end_lng');
+
+	$("#replay").hide();
 	$(".mobile-message").css('display', 'none');
 
 	if (start_lat && start_lng && end_lat && end_lng) {
@@ -87,8 +89,9 @@ $(function(){
 
 	$('#replay').click(function() {
         for (i=0; i < hyperlapse.length(); i++) {
-                hyperlapse.prev();
+            hyperlapse.prev();
         }
+        $("#replay").hide();
         hyperlapse.play();
 	});
 
@@ -165,6 +168,7 @@ function createHyperlapse(start_lat, start_lng, end_lat, end_lng) {
 			hyperlapse.onFrame = function(e) {
 				if (e.position == hyperlapse.length() - 1) {
 					hyperlapse.pause();
+					$("#replay").show();
 				}
 			}
 

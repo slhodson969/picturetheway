@@ -358,6 +358,11 @@ footer a{
 	margin-top: 20px;
 }
 
+#replay{
+	display: block;
+	margin: 0 auto;
+}
+
 .road_share{
 width: 100%;
 color: #fff;
@@ -393,6 +398,7 @@ display: block;
 #page3 .subtitle{
 	margin: 30px 0;
 }
+
 /* Landscape phones and down */
 @media (max-width: 480px) { 
 	body .mobile-message{
