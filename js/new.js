@@ -21,11 +21,13 @@ $(function(){
 	var end_lng = GetURLParameter('end_lng');
 
 	$("#replay").hide();
-	$(".mobile-message").css('display', 'none');
+	// $(".mobile-message").css('display', 'none');
+	// $(".web-message").css('display', 'none');
 
 	if (start_lat && start_lng && end_lat && end_lng) {
 		$("#page1").css('display', 'none');
 		$("#page2").fadeIn();
+		$(".web-message").css('display', 'none');
 		$("#page3").css('display', 'none');
 		createHyperlapse(start_lat, start_lng, end_lat, end_lng);
 	} else {
@@ -75,7 +77,8 @@ $(function(){
 
 			$("#page1").css('display', 'none');
 			$("#page2").fadeIn();
-
+			$(".web-message").css('display', 'none');
+			
 			createHyperlapse(
 				start_coordinates.location.lat(),
 				start_coordinates.location.lng(),

@@ -11,15 +11,24 @@ html{
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
 }
-.mobile-message{
-	display: none;
+.mobile-message {
 	background: rgba(225, 225, 225, 0.2);
 	padding: 5px 20px;
 	color: #fff;
 	position: relative;
 	font-size: 16px;
 	line-height: 22px;
+	text-align: center;
 }
+html .web-message{
+	background: rgba(225, 225, 225, 0.2);
+	padding: 5px 20px;
+	color: #fff;
+	position: relative;
+	font-size: 16px;
+	line-height: 22px;
+	text-align: center;
+	}
 /*Fade in stuff*/
 @keyframes move_from_top{
 	from {top:-100px;}
@@ -132,7 +141,7 @@ footer{
 		display:block;
 		text-align: center;
 		margin: 0 0 60px;
-		font-family: HelveticaNeue-UltraLight, 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+		font-family: 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 		font-weight: 100;
 		font-size: 28px;
 }
@@ -156,7 +165,7 @@ padding: 0 20px;
 margin-top: 16px;
 height: 50px;
 font-size: 16px;
-font-family: HelveticaNeue-UltraLight, 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+font-family: 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 font-weight: 100;
 outline: none;
 }
@@ -187,7 +196,7 @@ outline: none;
 		font-weight: 100;
 }
 .form_wrapper_text{
-	font-family: HelveticaNeue-UltraLight, 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	font-family: 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 	font-weight: 100;
 	text-align: center;
 	position: relative;
@@ -259,7 +268,7 @@ footer{
 }
 footer h4{
 		font-weight: 100;
-		font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: 100; letter-spacing: 1px;
+		font-family: 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: 100; letter-spacing: 1px;
 }
 footer img{
 	border-radius: 100px;
@@ -397,13 +406,16 @@ display: block;
 	transition: opacity 0.2s;
 }
 #page3 .subtitle{
-	margin: 30px 0;
+	margin: 50px 0 30px 0;
 }
 
 /* Landscape phones and down */
 @media (max-width: 480px) { 
 	body .mobile-message{
 		display: block;
+	}
+	body .mobile-message{
+		display: none;
 	}
 	.background_holder h1{
 		margin:40px 0;
