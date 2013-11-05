@@ -20,20 +20,18 @@ $(function(){
 	var end_lat = GetURLParameter('end_lat');
 	var end_lng = GetURLParameter('end_lng');
 
-	$("#replay").hide();
-	// $(".mobile-message").css('display', 'none');
-	// $(".web-message").css('display', 'none');
+	$(".finished_route").hide();
 
 	if (start_lat && start_lng && end_lat && end_lng) {
 		$("#page1").css('display', 'none');
 		$("#page2").fadeIn();
-		$(".web-message").css('display', 'none');
 		$("#page3").css('display', 'none');
 		createHyperlapse(start_lat, start_lng, end_lat, end_lng);
 	} else {
 		$("#page1").fadeIn("slow");
 		$("#page2").css('display', 'none');
 		$("#page3").css('display', 'none');
+		$("#pano").css('display', 'none')
 
 		enableOrDisableFindButton();
 
@@ -77,7 +75,7 @@ $(function(){
 
 			$("#page1").css('display', 'none');
 			$("#page2").fadeIn();
-			$(".web-message").css('display', 'none');
+			
 			
 			createHyperlapse(
 				start_coordinates.location.lat(),
@@ -94,7 +92,8 @@ $(function(){
         for (i=0; i < hyperlapse.length(); i++) {
             hyperlapse.prev();
         }
-        $("#replay").hide();
+        $(".finished_route").fadeOut();
+        $("#pano").removeClass('blurred_background');
         hyperlapse.play();
 	});
 
@@ -141,8 +140,8 @@ function createHyperlapse(start_lat, start_lng, end_lat, end_lng) {
 				max_points: 75,
 				distance_between_points: 5,
 				millis: 125,
-				width: $(".big_wrapper").width(),
-				height: $(".big_wrapper").height()
+				width: $(window).width(),
+				height: $(window).height()
 			});
 
 			hyperlapse.onRouteProgress = function(e) {
@@ -163,17 +162,24 @@ function createHyperlapse(start_lat, start_lng, end_lat, end_lng) {
 			};
 
 			hyperlapse.onLoadComplete = function(e) {
+				$(".web-message").fadeOut();
 				$('.progress .bar').width('0%');
 				$('#bar_percent').html('');
 				$("#page2").css('display', 'none');
-				$("#page3").fadeIn();
+				$("header").css('display', 'none');
+				$("footer").css('display', 'none');
+				$("#page3").delay( 800 ).fadeIn();
+				$("#pano").fadeIn();
+				$('html').css('background', '#3b3b3b');
 				hyperlapse.play();
 			};
 
 			hyperlapse.onFrame = function(e) {
 				if (e.position == hyperlapse.length() - 1) {
 					hyperlapse.pause();
-					$("#replay").show();
+					$("#replay").fadeIn();
+					$("#pano").addClass('blurred_background');
+					$(".finished_route").fadeIn();
 				}
 			}
 

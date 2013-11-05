@@ -36,8 +36,7 @@
     <!-- Fonts  -->
     <link href='http://fonts.googleapis.com/css?family=Gentium+Book+Basic' rel=
     'stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:800' rel=
-    'stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 
     <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
     <meta name="description" content="Picture the way. Form A to B in one motion. Easy" />
@@ -54,7 +53,7 @@
     <meta name="twitter:image" content="images/picturetheway.jpg"> 
 </head>
 
-<body>
+<body class="body">
 <div id="fb-root"></div>
     <script>(function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
@@ -67,20 +66,21 @@
 
     <div id="backgroundimage_holder">
         <div class="web-message">
-                <p>Please use Chrome or Firefox for the best results. The technique we're using is quite new and not fully supported by all browsers. Definitely mobile will struggle</p>
+                <p>Please use Chrome or Firefox for the best results. The technique we're using is quite new and not fully supported by all browsers.</p>
             </div><!-- mobile message -->
         <!-- <div class="mobile-message">
                 <p>As much as we love our Iphone and iPad.. It will not work. It will also not always play ball with old Android phones and please use Chrome for the best results</p>
             </div><!-- mobile message -->
         <div class="content_holder cf">
-
-            <h1><span class="headtext">Picture</span> <span class=
+            <header>
+                <h1><span class="headtext">Picture</span> <span class=
                 "the">the</span> <span class="headtext">way</span></h1>
+            </header>
             <div id="page1">
                 
 
                 <h5 class="subtitle">From A to B in one motion. Easy.<br>
-                <span>(Try to keep it shorter than 20km though)</span></h5>
+                <h6>(Try to keep it shorter than 20km though)</h6>
 
                 <div class="small_wrapper">
                     <form>
@@ -110,30 +110,37 @@
                 </div>
             </div><!-- page 2 -->
             <div id="page3">
-                <div class="big_wrapper">
-                    <div id="pano"><img id="replay" src="images/repeat.png" /></div>
-                     <h5 class="subtitle">Chances are you're using it once.. So share it once!</h5>
-                    <a href="#" class="facebook_share road_share" 
-                      onclick="
-                        window.open(
-                          'https://www.facebook.com/sharer/sharer.php?u='+createShareUrl(), 
-                          'facebook-share-dialog', 
-                          'width=626,height=436'); 
-                        return false;">
-                      Facebook the Way
-                    </a>
-                    <br />
-                    <a href='#' class="twitter_share road_share"
-                        onClick="
-                            window.open(
-                                'https://twitter.com/share?url='+createShareUrl(),
-                                'twitter-share-dialog',
-                                'width=626,height=436');
-                            return false;">
-                        Tweet the Way
-                    </a>
+                 <div class="finished_route">
+                    <h1><span class="headtext">Picture</span> <span class=
+                "the">the</span> <span class="headtext">way</span></h1>
+                        <div class="replay_new_wrapper">
+                            <a id="replay">Replay route</a>
+                            <a href="file:///Users/Peter/Sites/ptw/index.html" id="new">New route</a>
+                             <h5 class="subtitle">Don't be shy. Share your route.</h5>
+                            <a href="#" class="facebook_share road_share" 
+                              onclick="
+                                window.open(
+                                  'https://www.facebook.com/sharer/sharer.php?u='+createShareUrl(), 
+                                  'facebook-share-dialog', 
+                                  'width=626,height=436'); 
+                                return false;">
+                              Facebook the Way
+                            </a>
+                            <a href='#' class="twitter_share road_share"
+                                onClick="
+                                    window.open(
+                                        'https://twitter.com/share?url='+createShareUrl(),
+                                        'twitter-share-dialog',
+                                        'width=626,height=436');
+                                    return false;">
+                                Tweet the Way
+                            </a>
+                        </div>
+                        </div> <!-- New wrapper  -->
+                </div><!-- finished route -->
+                
+                    <div id="pano"></div>
 
-                </div>
             </div><!-- page 3 -->
 
             <footer class="cf">
