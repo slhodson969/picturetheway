@@ -134,7 +134,7 @@ function createHyperlapse(start_lat, start_lng, end_lat, end_lng) {
             var element = results[0];
 
             hyperlapse = new Hyperlapse(document.getElementById('pano'), {
-				zoom: 2,
+				zoom: 1,
 				use_lookat: false,
 				elevation: 50,
 				max_points: 500,
