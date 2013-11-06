@@ -134,10 +134,10 @@ function createHyperlapse(start_lat, start_lng, end_lat, end_lng) {
             var element = results[0];
 
             hyperlapse = new Hyperlapse(document.getElementById('pano'), {
-				zoom: 1,
+				zoom: 2,
 				use_lookat: false,
 				elevation: 50,
-				max_points: 75,
+				max_points: 500,
 				distance_between_points: 5,
 				millis: 125,
 				width: $(window).width(),
@@ -145,7 +145,7 @@ function createHyperlapse(start_lat, start_lng, end_lat, end_lng) {
 			});
 
 			hyperlapse.onRouteProgress = function(e) {
-				var p = Math.floor((hyperlapse.length()/160)*100);
+				var p = Math.floor((hyperlapse.length()/1000)*100);
 				$('.progress .bar').width(p+'%');
 				$('#bar_percent').html(p+'%');
 			};
