@@ -20,18 +20,20 @@ $(function(){
 	var end_lat = GetURLParameter('end_lat');
 	var end_lng = GetURLParameter('end_lng');
 
-	$(".finished_route").hide();
+	$("#replay").hide();
+	// $(".mobile-message").css('display', 'none');
+	// $(".web-message").css('display', 'none');
 
 	if (start_lat && start_lng && end_lat && end_lng) {
 		$("#page1").css('display', 'none');
 		$("#page2").fadeIn();
+		$(".web-message").css('display', 'none');
 		$("#page3").css('display', 'none');
 		createHyperlapse(start_lat, start_lng, end_lat, end_lng);
 	} else {
 		$("#page1").fadeIn("slow");
 		$("#page2").css('display', 'none');
 		$("#page3").css('display', 'none');
-		$("#pano").css('display', 'none')
 
 		enableOrDisableFindButton();
 
@@ -75,7 +77,7 @@ $(function(){
 
 			$("#page1").css('display', 'none');
 			$("#page2").fadeIn();
-			
+			$(".web-message").css('display', 'none');
 			
 			createHyperlapse(
 				start_coordinates.location.lat(),
@@ -92,8 +94,7 @@ $(function(){
         for (i=0; i < hyperlapse.length(); i++) {
             hyperlapse.prev();
         }
-        $(".finished_route").fadeOut();
-        $("#pano").removeClass('blurred_background');
+        $("#replay").hide();
         hyperlapse.play();
 	});
 
@@ -137,15 +138,15 @@ function createHyperlapse(start_lat, start_lng, end_lat, end_lng) {
 				zoom: 1,
 				use_lookat: false,
 				elevation: 50,
-				max_points: 500,
+				max_points: 75,
 				distance_between_points: 5,
 				millis: 125,
-				width: $(window).width(),
-				height: $(window).height()
+				width: $(".big_wrapper").width(),
+				height: $(".big_wrapper").height()
 			});
 
 			hyperlapse.onRouteProgress = function(e) {
-				var p = Math.floor((hyperlapse.length()/1000)*100);
+				var p = Math.floor((hyperlapse.length()/160)*100);
 				$('.progress .bar').width(p+'%');
 				$('#bar_percent').html(p+'%');
 			};
@@ -162,25 +163,17 @@ function createHyperlapse(start_lat, start_lng, end_lat, end_lng) {
 			};
 
 			hyperlapse.onLoadComplete = function(e) {
-				$(".web-message").fadeOut();
 				$('.progress .bar').width('0%');
 				$('#bar_percent').html('');
 				$("#page2").css('display', 'none');
-				$("header").css('display', 'none');
-				$("footer").css('display', 'none');
-				$("#page3").delay( 800 ).fadeIn();
-				$("#pano").fadeIn();
-				$('html').css('background', '#3b3b3b');
+				$("#page3").fadeIn();
 				hyperlapse.play();
 			};
 
 			hyperlapse.onFrame = function(e) {
 				if (e.position == hyperlapse.length() - 1) {
 					hyperlapse.pause();
-					$("#replay").fadeIn();
-					$("#pano").addClass('blurred_background');
-					$(".finished_route").fadeIn();
-					$(".finished_route footer").fadeIn();
+					$("#replay").show();
 				}
 			}
 

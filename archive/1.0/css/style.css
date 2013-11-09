@@ -5,19 +5,12 @@ html{
 	background-size:cover;
 	background-position: center;
 }
-.body{
-	 font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
-	 Helvetica, Arial, "Lucida Grande", sans-serif; 
-   font-weight: 300;
-}
 *{
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
 }
-
-/*General syling */
 .mobile-message {
 	background: rgba(225, 225, 225, 0.2);
 	padding: 5px 20px;
@@ -36,50 +29,52 @@ html .web-message{
 	line-height: 22px;
 	text-align: center;
 	}
-
+/*Fade in stuff*/
 @keyframes move_from_top{
-	from {top:-100px; opacity: 0;}
-	to {top:0px; opacity: 1;}
+	from {top:-100px;}
+	to {top:0px;}
 }
 
 @-moz-keyframe move_from_top{ 
-	from {top:-100px; opacity: 0;}
-	to {top:0px; opacity: 1;}
+	from {top:-100px;}
+	to {top:0px;}
 }
 @-webkit-keyframes move_from_top{
-	from {top:-100px; opacity: 0;}
-	to {top:0px; opacity: 1;}
+	from {top:-100px;}
+	to {top:0px;}
 }
 @-o-keyframes move_from_top{
-	from {top:-100px; opacity: 0;}
-	to {top:0px; opacity: 1;}
+	from {top:-100px;}
+	to {top:0px;}
 }
 
 @keyframes move_from_bottom{
-	from {top:100px; opacity: 0;}
-	to {top:0px; opacity: 1;}
+	from {top:100px;}
+	to {top:0px;}
 }
 
 @-moz-keyframe move_from_bottom{ 
-	from {top:100px; opacity: 0;}
-	to {top:0px; opacity: 1;}
+	from {top:100px;}
+	to {top:0px;}
 }
 @-webkit-keyframes move_from_bottom{
-	from {top:100px; opacity: 0;}
-	to {top:0px; opacity: 1;}
+	from {top:100px;}
+	to {top:0px;}
 }
 @-o-keyframes move_from_bottom{
-	from {top:100px; opacity: 0;}
-	to {top:0px; opacity: 1;}
+	from {top:100px;}
+	to {top:0px;}
 }
 h1{
+	display: none;
 	position: relative;
-	animation:move_from_top 0.5s;
-	-moz-animation: move_from_top 0.5s; /*Firefox */
-	-webkit-animation:move_from_top 0.5s; /*Safari and Chrome*/
-	-o-animation:move_from_top 0.5s; /*Opera */
+	animation:move_from_top 0.9s;
+	-moz-animation: move_from_top 0.9s; /*Firefox */
+	-webkit-animation:move_from_top 0.9s; /*Safari and Chrome*/
+	-o-animation:move_from_top 0.9s; /*Opera */
 }
  #page1{
+	display: none;
 	position: relative;
 	animation:move_from_top 0.9s;
 	-moz-animation: move_from_top 0.9s; /*Firefox */
@@ -89,6 +84,7 @@ h1{
 
 }
  #page2{
+	display: none;
 	position: relative;
 	animation:move_from_top 0.9s;
 	-moz-animation: move_from_top 0.9s; /*Firefox */
@@ -98,6 +94,7 @@ h1{
 
 }
  #page3{
+	display: none;
 	position: relative;
 	animation:move_from_top 0.9s;
 	-moz-animation: move_from_top 0.9s; /*Firefox */
@@ -106,7 +103,15 @@ h1{
 	clear: both;
 
 }
-/*Page 1*/
+footer{
+	width: 100%;
+	display: none;
+	position: relative;
+	animation:move_from_bottom 0.9s;
+	-moz-animation: move_from_bottom 0.9s; /*Firefox */
+	-webkit-animation:move_from_bottom 0.9s; /*Safari and Chrome*/
+	-o-animation:move_from_bottom 0.9s; /*Opera */
+}
 .content_holder h1{
 	color:#fff;
 	text-align: center;
@@ -124,37 +129,25 @@ h1{
 
 .the{
 	font-family: 'Gentium Book Basic', serif;
-	font-size: 40px;
+	font-size: 60px;
 }
-body .headtext{
+.headtext{
 	font-family: 'Open Sans', sans-serif;
-	font-weight: 800;
+	font-weight: 900;
 	font-size: 100px;
 }
 .subtitle{
-		font-family: 'Open Sans', sans-serif;
 		color:#fff;
 		display:block;
 		text-align: center;
-		font-weight: 400;
+		margin: 0 0 60px;
+		font-family: 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+		font-weight: 100;
 		font-size: 28px;
-		text-transform:uppercase;
-		border-top: thin solid #fff;
-		border-bottom: thin solid #fff;
-		max-width: 500px;
-		margin: 0 auto 20px auto;
-		padding: 5px 0;
-
 }
-#page1 h6{
-	text-align: center;
-			font-family: 'Open Sans', sans-serif;
-	color: #fff;
-	border: none;
+#page1 .subtitle span{
 	font-size: 16px;
-	font-weight: 300;
-	margin-top: 0;
-	text-transform: none;
+	font-weight: 600;
 }
 .small_wrapper{
 	width:100%;
@@ -172,6 +165,8 @@ padding: 0 20px;
 margin-top: 16px;
 height: 50px;
 font-size: 16px;
+font-family: 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+font-weight: 100;
 outline: none;
 }
 
@@ -179,20 +174,30 @@ outline: none;
 ::-webkit-input-placeholder { /* WebKit browsers */
     color:    #c7bbb0;
     font-size: 16px;
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+		font-weight: 100;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
     color:    #c7bbb0;
     font-size: 16px;
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+		font-weight: 100;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
     color:    #c7bbb0;
     font-size: 16px;
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+		font-weight: 100;
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
     color:    #c7bbb0;
     font-size: 16px;
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+		font-weight: 100;
 }
 .form_wrapper_text{
+	font-family: 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	font-weight: 100;
 	text-align: center;
 	position: relative;
 	font-size: 28px;
@@ -239,7 +244,8 @@ outline: none;
 	border: none;
 	width: 100%;
 	margin-top: 28px;
-	font-weight: 600;
+	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	font-weight: 400;
 	text-align: center;
 	font-size: 28px;
 	padding: 12px;
@@ -253,20 +259,16 @@ outline: none;
 }
 
 /**********Footer magic! */
+
 footer{
-	display: none;
-	position: relative;
-	max-width: 500px;
+	width: 500px;
 	margin: 60px auto 20px auto;
 	text-align: center;
 	color: #fff;
-	animation:move_from_bottom 0.9s;
-	-moz-animation: move_from_bottom 0.9s; /*Firefox */
-	-webkit-animation:move_from_bottom 0.9s; /*Safari and Chrome*/
-	-o-animation:move_from_bottom 0.9s; /*Opera */
 }
 footer h4{
-	font-weight: 100;
+		font-weight: 100;
+		font-family: 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: 100; letter-spacing: 1px;
 }
 footer img{
 	border-radius: 100px;
@@ -343,7 +345,6 @@ footer a{
 	background: rgb(255, 255, 255); /* The Fallback */
   background: rgba(255, 255, 255, 0.2);
   overflow: hidden;
-  margin: 60px 0 0 0;
 }
 .bar{
 	z-index: 10;
@@ -353,53 +354,33 @@ footer a{
 	width: 100%;
 	height: 100%;
 }
+#page2 .big_wrapper{
+	min-height: 400px;
+}
+
 
 /***********    Page 3     *************/
 #pano{
-	position: fixed;
+	position: relative;
 	width: 100%;
 	height: 100%;
+	margin-top: 20px;
 }
 
-.replay_new_wrapper{
-	position: relative;
-	max-width: 400px;
-	margin: 20px auto 30px auto;
-	clear: both;
-}
-#replay, #new{
+#replay{
+	position: absolute;
+	left: 278px;
+	top: 121px;
 	cursor: pointer;
-	display: block;
-	width: 100%;
-	color: #fff;
-	text-align: center;
-	text-decoration: none;
-	border: 2px solid rgba(225, 225, 225, 0.8);
-	font-size: 28px;
-	padding: 10px;
-	-webkit-transition: background 0.2s;
-	-moz-transition: background 0.2s;
-	-o-transition: background 0.2s;
-	-ms-transition: background 0.2s;
-	transition: background 0.2s;
-}
-#replay:hover{
-	background: rgba(255, 255, 255, 0.8);
-	color: #3b3b3b;
-}
-#new:hover{
-	background: rgba(255, 255, 255, 0.8);
-	color: #3b3b3b;
-}
-
-#new{
-	margin: 20px 0;
 }
 .road_share{
 width: 100%;
 color: #fff;
 -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
 filter: alpha(opacity=70);
+opacity: 0.7;
+font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+font-weight: 400;
 text-align: center;
 font-size: 28px;
 padding: 12px;
@@ -411,12 +392,13 @@ display: block;
 .twitter_share{
 	margin-top: 20px;
 	background: #4099ff;
+	margin-bottom: 50px;
 }
 .facebook_share{
 	background: #3B5998;
 }
 .twitter_share:hover, .facebook_share:hover{
-	opacity: 0.8;
+	opacity: 1;
 	-webkit-transition: opacity 0.2s;
 	-moz-transition: opacity 0.2s;
 	-o-transition: opacity 0.2s;
@@ -425,22 +407,6 @@ display: block;
 }
 #page3 .subtitle{
 	margin: 50px 0 30px 0;
-	font-size: 23px;
-	padding: 12px 0;
-}
-.finished_route{
-	position: absolute;
-	z-index: 10;
-	background: rgba(0, 0, 0, 0.6);
-	width: 100%;
-	height: 100%;
-}
-
-.blurred_background{
-	filter: blur(10px);
-	-webkit-filter: blur(10px);
-	opacity: 0.7;
-
 }
 
 /* Landscape phones and down */
@@ -458,13 +424,12 @@ display: block;
 	.the{
 		font-size: 23px;
 	}
-	body .headtext{
+	.headtext{
 		font-size: 47px;
 		position: center;
 	}
 	.subtitle{
-		margin: 20px;
-		font-size: 18px;
+		margin-bottom: 30px;
 	}
 	body footer{
 		margin-top: 40px;
